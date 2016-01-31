@@ -11,13 +11,12 @@ class FLMapModule extends FLBuilderModule {
 		));
 
 		$this->add_js('googlemaps-api', '//maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places', array(), NULL, true);
-		$this->add_js('geocomplete', '//cdnjs.cloudflare.com/ajax/libs/geocomplete/1.6.5/jquery.geocomplete.min.js', array('jquery'), '1.6.5', true);
-
 		add_filter('fl_builder_render_settings_field', array($this, 'zestsms_extended_map_filters'), 10, 3);
 	}
 
 	public function enqueue_scripts() {
 		if($this->settings->marker == 'icon' || FLBuilderModel::is_builder_active()) {
+			$this->add_js('geocomplete', '//cdnjs.cloudflare.com/ajax/libs/geocomplete/1.6.5/jquery.geocomplete.min.js', array('jquery'), '1.6.5', true);
 			$this->add_js('marker-with-label', '//google-maps-utility-library-v3.googlecode.com/svn/trunk/markerwithlabel/src/markerwithlabel.js', array('googlemaps-api'), NULL, true);
 		}
 	}
