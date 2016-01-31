@@ -1,0 +1,13 @@
+.locations-map {
+	width: 100%;
+}
+
+.locations-map .info-box {
+	background: rgba(104,104,101, .9);
+	color: #fff;
+	font-size: 20px;
+	padding: 6px 10px;
+}
+.locations-map .info-box img {
+	display: none;
+}
