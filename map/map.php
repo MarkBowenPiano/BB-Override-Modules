@@ -30,11 +30,11 @@ class FLMapModule extends FLBuilderModule {
 	}
 }
 
-if(!function_exists('zestsms_location')) :
-function zestsms_location( $name, $value, $field, $settings ) { ?>
+if(!has_action('fl_builder_control_zestsms-location')) :
+function zestsms_location_input( $name, $value, $field, $settings ) { ?>
 	<input type="hidden" data-geo="location" name="<?php echo $name; ?>" value="<?php echo $value; ?>" />
 <?php }
-add_action( 'fl_builder_control_zestsms-location', 'zestsms_location', 1, 4 );
+add_action( 'fl_builder_control_zestsms-location', 'zestsms_location_input', 1, 4 );
 endif;
 
 FLBuilder::register_module('FLMapModule', array(
