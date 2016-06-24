@@ -22,10 +22,14 @@
       labelAnchor: new google.maps.Point(<?php echo $settings->marker_offset_x; ?>, <?php echo $settings->marker_offset_y; ?>),
       labelClass: 'marker_icon'
     });
+    google.maps.event.addListener(marker, "click", function (e) {
+      window.open('https://maps.google.com/?daddr=<?php echo urlencode($settings->address); ?>','_newtab');
+    });
     <?php else : ?>
     marker = new google.maps.Marker({
       position: map_center,
-      map: map
+      map: map,
+      url: 'https://maps.google.com/?daddr=<?php echo urlencode($settings->address); ?>',
       <?php if($settings->marker == 'photo' && $settings->marker_photo) : ?>
       ,icon: {
         url: '<?php echo $settings->marker_photo_src; ?>',

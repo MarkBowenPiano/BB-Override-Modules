@@ -17,7 +17,7 @@ class FLMapModule extends FLBuilderModule {
 	public function enqueue_scripts() {
 		if($this->settings->marker == 'icon' || FLBuilderModel::is_builder_active()) {
 			$this->add_js('geocomplete', '//cdnjs.cloudflare.com/ajax/libs/geocomplete/1.6.5/jquery.geocomplete.min.js', array('jquery'), '1.6.5', true);
-			$this->add_js('marker-with-label', '//google-maps-utility-library-v3.googlecode.com/svn/trunk/markerwithlabel/src/markerwithlabel.js', array('googlemaps-api'), NULL, true);
+			$this->add_js('marker-with-label', $this->url . 'js/markerwithlabel.js', array('googlemaps-api'), NULL, true);
 		}
 	}
 
